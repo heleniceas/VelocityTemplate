@@ -1,0 +1,58 @@
+{
+    "TableName": "Staff",
+    "Item": {
+        "name": {
+            "N": "$input.path('$.name')"
+        },
+        "age": {
+            "S": "$input.path('$.age')"
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+$model.name
+$model.age
+==============================================
+$model.position
+#foreach( $position in $model.position )
+   $position
+#end
+==============================================
+$model.skills
+#foreach( $skill in $model.skills )
+   $skill.id -  $skill.name
+   #foreach( $key in $skill.map.keySet() )
+       Key: $key -> Value: $skill.map.get($key)
+   #end
+
+     $skill.list
+    #foreach( $sal in $skill.list )
+    $sal
+    #end
+
+#end
+==============================================
+$model.salary
+#foreach( $sal in $model.salary )
+$sal
+#end
+=====TESTE=========================================
+#foreach( $key in $model.salary.keySet() )
+    Key: $key -> Value: $model.salary.get($key)
+#end
+
+===================================================
+$model.name
+#if ($model.name)
+ ... do stuff here if the variable not is null
+#end
+
+
